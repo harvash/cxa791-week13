@@ -4,6 +4,7 @@ import boto3
 import configparser
 import psycopg2
 
+# get the MySQL connection info and connect
 parser = configparser.ConfigParser()
 parser.read("pipeline.conf")
 hostname = parser.get("mysql_config", "hostname")
@@ -23,8 +24,9 @@ if conn is None:
 else:
   print("MySQL connection established!")
 
-  m_query = "SELECT * FROM Orders where LastUpdated > now() - interval 1 week;"
-local_filename = "week13-anderson.csv"
+m_query = """SELECT *
+    FROM Orders;"""
+local_filename = "order_extract.csv"
 
 m_cursor = conn.cursor()
 m_cursor.execute(m_query)
