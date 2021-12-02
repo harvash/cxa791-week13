@@ -1333,9 +1333,9 @@ dags:
     # If using a custom storageClass, pass name here
     storageClassName:
     # access mode of the persistent volume
-    accessMode: ReadWriteOnce
+    accessMode: ReadOnlyMany
     ## the name of an existing PVC to use
-    existingClaim:
+    existingClaim: centos-pv-claim
   gitSync:
     enabled: true
 

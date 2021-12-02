@@ -2,7 +2,7 @@ import pymysql
 import csv
 import boto3
 import configparser
-import psycopg2
+
 
 parser = configparser.ConfigParser()
 parser.read("pipeline.conf")
